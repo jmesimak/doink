@@ -1,0 +1,5 @@
+/* Handheld */
+@import url("css/doink_handheld.css") only screen and (max-width:449px);
+
+/* Screen */
+@import url("css/doink.css") only screen and (min-width:450px);
