@@ -4,4 +4,6 @@ doink
 Go doink yourself
 -----------------
 
-*Best webapp EU* -Your mom
+http://doink.plop.fi
+
+Mobile to-do application, built with HTML5, CSS3, PHP and JS.
