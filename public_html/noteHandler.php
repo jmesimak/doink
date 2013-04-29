@@ -1,3 +1,5 @@
+<!--Experimental noteHandler.php, not in production yet.-->
+
 <?php
 
 include('dbHandler.php');
@@ -24,17 +26,30 @@ class noteHandler {
         }
     }
 
-    public function getNote($task_id) {
+    public function getNote($note_id) {
         $query = $this->dbConnection->db->prepare('
             SELECT * From notes
-            WHERE task_id = ?');
+            WHERE id = ?');
         try {
-            $query->execute(array($task_id));
-            $returnable = $query->fetchAll();
-            echo $returnable;
+            $query->execute(array($note_id));
+            $returnable = $query->fetch(PDO::FETCH_ASSOC);
             return $returnable;
         } catch (PDOException $e) {
             return false;
+        }
+    }
+
+    public function updateNote($note_id, $content) {
+        $query = $this->dbConnection->db->prepare('
+            UPDATE notes
+            SET note = ?
+            WHERE id = ?');
+        try {
+            $query->execute(array($content, $note_id));
+            return true;
+        } catch (PDOException $e) {
+            $error = ('Could not update note content. Please try again or contact the site administrators.');
+            return $error;
         }
     }
 

@@ -3,32 +3,27 @@
 
 $(document).ready(function(e) {
     $('#loginButton').bind('click', function() {
-        doLogin();
+        createUser();
     });
-	
-	$('#registerButton').bind('click', function() { 
-		window.location = 'createUser.php';
-	});
 
-    $('#user, #pwd').bind('click', function() {
+    $('#user, #first, #last, #pwd').bind('click', function() {
         $(this).val('');
     });
 
-    $('#user, #pwd').bind('blur', function() {
+    $('#user, #first, #last, #pwd').bind('blur', function() {
         if ($(this).val() == '') {
-            $(this).val('email');
+            $(this).val(document.title);
         }
     });
 
 });
 
-
-// login scripts
-
-function doLogin() {
-    var uname = $('#user').val();
-    var password = $('#pwd').val();
-    var data = 'user=' + uname + '&pwd=' + password + '&login=1';
+function createUser() {
+    var email = $('#user').val();
+    var first = $('#first').val();
+    var last = $('#last').val();
+    var pwd = $('#pwd').val();
+    var data = 'user='+email+'&first='+first+'&last='+last+'&pwd='+pwd+'&createuser=1';
     $('#message_container').slideUp(500);
     $('#message_container').empty();
     $("#loginForm").delay(500).slideUp(500);
@@ -41,15 +36,16 @@ function doLogin() {
         cache: false,
         success: function(result) {
             var result = $.parseJSON(result);
-            if (result['login_complete']) {
-                window.location = 'main.php';
+            if (result['user_created']) {
+                $('#message_container').delay(300).append('<div class="messagebox"><p>Creating new user</p></div>').slideDown(500);
+                setTimeout("location.href = 'http://doink.plop.fi/login.php';", 2000);
             } else {
-                $('#message_container').delay(1500).append('<div class="messagebox"><p>Login failed, please check your email and password and try again!</p></div>').slideDown(500);
+                $('#message_container').delay(1500).append('<div class="messagebox"><p>Dude you just failed hard lol</p></div>').slideDown(500);
                 $('#spinner').fadeOut(500);
                 $('#loginForm').delay(1000).slideDown(500);
                 $('#loginButton').delay(2100).slideDown(500);
-
             }
         }
     });
+
 }

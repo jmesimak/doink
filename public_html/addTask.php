@@ -1,25 +1,17 @@
 <?php
 require_once('core.php');
 session_start();
-
-if (!isset($_SESSION['doink_user'])) {
-    header('Location: login.php');
-}
-
 ?>
 <!DOCTYPE html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Doink</title>
     <link href="doink_mq.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
-    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-precomposed.png">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="addtask.js"></script>
 </head>
-
 <body>
 	    <nav id="floatmenu">
             <ul>
@@ -29,12 +21,17 @@ if (!isset($_SESSION['doink_user'])) {
             </ul>
         </nav>
         <div id="menushadow"><div class="endshadow"></div></div>
-        <section id="taskarea">
+      <section>
+       	  <form id="regularForm">
+          			<div id="message_container"></div>
+            	    <input name="task_title" type="text" id="task_title" value="Title">
+            	    <input name="task_description" type="text" id="task_description" value="Description">
+            	    <input type="datetime-local" name="deadline" id ="task_deadline">
+            	    <input name="task_priority" type="checkbox" id="task_priority">
+            	    <label for="task_priority" id="priority_label">Important task</label>
+           	    <div id="loginButton" class="button purple">Create Task</div>
+          </form>
+          <div id="spinner" class="light"></div>
         </section>
-        <nav id="floatfootermenu">
-        	<ul>
-            	<li><a id="menugear" href="addTask.php"><div class="floaticon"><img src="img/ico_add.png"></div></a></li>
-            </ul>
-        </nav>
 </body>
 </html>

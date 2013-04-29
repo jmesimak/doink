@@ -1,4 +1,12 @@
-<?php ?>
+<?php 
+
+    include('taskHandler.php');
+    $hanzk = new taskHandler();
+    $lol = $hanzk->isComplete(1342);
+    $lol = $lol['task_complete'];
+    echo $lol;
+    
+?>
 <!DOCTYPE html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

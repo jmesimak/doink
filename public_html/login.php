@@ -29,7 +29,8 @@ if (isset($_SESSION['doink_user'])) {
        	  <form id="loginForm">
             	<input name="user" type="text" id="user" value="email">
             	<input name="pwd" type="password" id="pwd" value="password">
-            	<div id="loginButton" class="button">Login</div>
+            	<div id="loginButton" class="button purple">Login</div>
+                <div id="registerButton" class="button secondary">Register</div>
           </form>
           <div id="spinner" class="light"></div>
         </section>

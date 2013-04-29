@@ -39,6 +39,13 @@ body.login {
 	margin-right: auto;
 	margin-left: auto;
 }
+#regularForm {
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 4em;
+	display: block;
+	width: 80%;
+}
 #loginForm input {
 	width: 100%;
 	margin-bottom: 0.5em;
@@ -60,21 +67,30 @@ body.login {
 	padding-right: 0.5em;
 	padding-left: 0.5em;
 }
-.messagebox p {
-	margin-top: 1em;
-	margin-right: 1em;
-	margin-bottom: 2em;
-	margin-left: 1em;
-	font-family: 'Maven Pro', sans-serif;
-	color: #FFF;
+#regularForm input {
+	width: 100%;
+	margin-bottom: 0.5em;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding-top: 0.8em;
+	padding-bottom: 0.8em;
+	color: #5b5b7c;
+	font-size: 1.2em;
+	-webkit-box-shadow: inset 0px 2px 0px 0px rgba(200, 200, 200, 1);
+	box-shadow: inset 0px 2px 0px 0px rgba(200, 200, 200, 1);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding-right: 0.5em;
+	padding-left: 0.5em;
+	border: 1px solid #E3E3E3;
 }
-#message_container {
+#regularForm input[type="checkbox"] {
 	display: none;
 }
-#loginForm .button {
-	background-image: url(../img/button_bg.png);
-	background-repeat: repeat-x;
-	background-position: bottom;
+
+#regularForm input[type="checkbox"] + label {
+	display: block;
 	text-align: center;
 	padding-top: 0.5em;
 	padding-bottom: 0.7em;
@@ -88,6 +104,54 @@ body.login {
 	-webkit-box-shadow: 0px 0px 2px #33275d;
 	-moz-box-shadow: 0px 0px 2px #33275d;
 	box-shadow: 0px 0px 2px #33275d;
+	background-repeat: repeat-x;
+	background-position: bottom;
+	background-image: url(../img/button_bg_gray.png);
+}
+
+#regularForm input[type="checkbox"] + label:active, #regularForm input[type="checkbox"]:checked + label {
+    background-image: url(../img/button_bg_green.png);
+}
+
+.messagebox p {
+	margin-top: 1em;
+	margin-right: 1em;
+	margin-bottom: 2em;
+	margin-left: 1em;
+	font-family: 'Maven Pro', sans-serif;
+	color: #FFF;
+}
+#message_container {
+	display: none;
+}
+.button {
+	text-align: center;
+	padding-top: 0.5em;
+	padding-bottom: 0.7em;
+	font-family: "Maven Pro";
+	color: #FFF;
+	font-size: 1.3em;
+	margin-top: 0.5em;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-bottom: 1em;
+	-webkit-box-shadow: 0px 0px 2px #33275d;
+	-moz-box-shadow: 0px 0px 2px #33275d;
+	box-shadow: 0px 0px 2px #33275d;
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+.button.purple {
+	background-image: url(../img/button_bg.png);
+
+}
+.button.secondary {
+	background-image: url(../img/button_bg_blue.png);
+
+}
+.button.red {
+	background-image: url(../img/button_bg_red.png);
+
 }
 img {
 	width: 100%;
@@ -166,11 +230,13 @@ img {
 	background-color: #8970bb;
 	display: block;
 	position: fixed;
-	left: 0px;
-	bottom: 0px;
+	right: 0px;
+	bottom: 1em;
 	z-index: 100;
-	width: 100%;
+	width: 3.5em;
 	overflow: hidden;
+	opacity: 0.8;
+	padding-left: -0.5em;
 }
 #floatfootermenu ul {
 	margin: 0px;
@@ -182,6 +248,7 @@ img {
 	margin: auto;
 	width: 80%;
 	position: relative;
+	padding-top: 4em;
 }
 .curtainbutton {
 	background-color: #F66;
@@ -247,16 +314,20 @@ img {
 	border-top-width: 1px;
 	border-top-style: dotted;
 	border-top-color: #e5e1ec;
+	background-color: #FFF;
+	overflow: hidden;
 }
 .infopanel p {
 	color: #aea8c2 !important;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #e5e1ec;
+	padding-bottom: 0.5em;
 }
-.task .fade {
-	opacity: 0.5;
+.task.fade {
+	opacity: 0.4;
 }
 .curtain {
-	background-color: #000;
-	opacity: 0.8;
 	position: fixed;
 	z-index: 9999;
 	height: 100%;
@@ -265,13 +336,12 @@ img {
 	top: 0px;
 	float: left;
 	display: block;
+	background-image: url(../img/curtain.png);
 }
 .hl {
-	background-color: #fdfcff !important;
-	-webkit-box-shadow:0 0 5px #f3ffa1; 
-	-moz-box-shadow: 0 0 5px #f3ffa1; 
-	box-shadow:0 0 5px #f3ffa1; 
-	z-index: 50;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #e5e1ec;
 }
 .infopanel .cal {
 	background-image: url(../img/ico_cal.png);
@@ -327,3 +397,33 @@ img {
     background-size: 1.5em 1.5em;
 }
 
+.infobutton {
+	font-family: 'Maven Pro', sans-serif;
+	float: right;
+	border: 1px solid #EEE;
+	margin-top: 0.5em;
+	margin-right: 0.5em;
+	margin-bottom: 0.5em;
+	padding-top: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
+	padding-left: 40px;
+}
+
+.infobutton.del {
+	background-image: url(../img/ico_del.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;	
+}
+
+.infobutton.comp {
+	background-image: url(../img/ico_comp.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+}
+
+.infobutton.note {
+    	background-image: url(../img/ico_note.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+}
